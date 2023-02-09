@@ -1,0 +1,33 @@
+
+.container{
+  display: flex;
+  flex-direction: column;
+  min-width: 55%;
+  /* flex-grow: 1; */
+
+    /* flex-direction: column; */
+
+    /* flex-grow: 1; */
+    /* justify-content: center; */
+    /* min-width: min-content; */
+}
+
+
+.card{
+  color: white;
+  display: flex;
+  border: 1px solid #dad83c;
+  flex-wrap: wrap;
+  
+  
+}
+
+.info{
+  flex-grow: 1;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+a {
+    width: max-content;
+}

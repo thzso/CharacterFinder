@@ -1,0 +1,14 @@
+
+.episodeCharactersContainer{
+  display: flex;
+
+  flex-direction: row;
+  width: 90vw;
+  display: flex;
+  gap: 0.5rem;
+  overflow: auto;
+}
+
+.episodeCharactersContainer div{
+  width: 10rem;
+}
