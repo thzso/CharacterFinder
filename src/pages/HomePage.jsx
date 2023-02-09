@@ -46,18 +46,27 @@ useEffect(()=>{
 const [inputValue, setInputValue]= useState("")
 const [searchResults, setSearchResults] = useState([])
 const [options, setOptions] = useState([])
+const [nextUrl, setNextUrl] = useState("")
+// ezt még nem oldottam meg, h az autocomplete select rész scrollolható legyen, külön komponensbe lett talán rakni
 
 const handleInput = async(value)=>{
 
   setInputValue(value)
 
+  //pagination itt: új embernél le kell nullázni az  options arrayt, és amyg ugyanaz az ember van , addig a nexturlt adni a utilnak
+// ezt lehet a utilba kellene eleve összegyűjteni, ott megírogatni a  - nem !
   if(value !== ""){
 
-    
+    if(nextUrl !== "null"){
+
+
       let result = await getSearchResults(value)
-      setSearchResults(result)
-      let optionsArray= searchResults.map((char, i) => char.name.toLowerCase())
+      console.log("next result",result.data.info.next)
+      setSearchResults(result.data.results)
+      setNextUrl(result.data.info.next)
+      let optionsArray= searchResults.map((char, i) => char.name)
       setOptions(optionsArray)
+    }
   }else{
     setOptions([])
   }
@@ -65,9 +74,9 @@ const handleInput = async(value)=>{
 
 }
 
-
-console.log("inputvalue",inputValue)
-console.log("options" , options)
+// console.log("inputvalue",inputValue)
+// console.log("options" , options)
+console.log("nexturl" ,nextUrl)
 
 
 
