@@ -1,14 +1,20 @@
-import { useState } from "react"
+// EZ NEM KELLL ASSZEM
 
 import axios from "axios"
 
 
-const getSearchResuts = async(value)=> {
+const getSearchResults = async(value, page)=> {
 
-  const res = await axios.get(`https://rickandmortyapi.com/api/character/?name=${value}`)
 
-  console.log(res)
-  return res
+    const res = await axios.get(`https://rickandmortyapi.com/api/character/?page=${page}&name=${value}`)
+   
 
-}
-export default getSearchResuts
+    const nextPage = res.data.info.next
+    
+
+    return res
+  }
+
+
+
+export default getSearchResults

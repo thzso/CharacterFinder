@@ -3,26 +3,26 @@ import { Link, useRouteLoaderData } from "react-router-dom";
 import Character from "../components/Character";
 // import characterLoader from "../util/characterLoader";
 import getNextPage from "../util/getNextPage";
-import styles from "./Homepage.module.css"
+import styles from "./Homepage.module.css";
 import { useContext } from "react";
 import DataContext from "../context/DataContext";
 import getData from "../util/getData";
-import { Autocomplete } from "@mui/material"
-import {TextField} from "@mui/material"
-import getSearchResults from "../util/getSearchResults"
-
+import MuiAutocomplete from "../components/MuiAutocomplete.jsx";
+// import { Autocomplete } from "@mui/material"
+// import {TextField} from "@mui/material"
+// import getSearchResults from "../util/getSearchResults"
 
 const HomePage = () => {
+  const loaderData = useRouteLoaderData("root");
 
-  const loaderData = useRouteLoaderData("root")
-  
-  const {characterContext} = useContext(DataContext)
-  const {setCharacterContext} =useContext(DataContext)
-  const [data, setData]= useState(characterContext)
-  const nextPage = characterContext[characterContext.length-1].next
- 
+  const { characterContext } = useContext(DataContext);
+  const { setCharacterContext } = useContext(DataContext);
+  const [data, setData] = useState(characterContext);
+  const nextPage = characterContext[characterContext.length - 1].next;
+
+  const [options, setOptions] = useState([]);
+
   const handleMore = () => {
-
     const getNextPageData = async () => {
       let newData = await getData(nextPage);
 
@@ -36,83 +36,36 @@ const HomePage = () => {
     getNextPageData();
   };
 
-
-
-useEffect(()=>{
-  if(!characterContext.includes(data))
-  setCharacterContext( [...data])
-},[data])
-
-const [inputValue, setInputValue]= useState("")
-const [searchResults, setSearchResults] = useState([])
-const [options, setOptions] = useState([])
-const [nextUrl, setNextUrl] = useState("")
-// ezt még nem oldottam meg, h az autocomplete select rész scrollolható legyen, külön komponensbe lett talán rakni
-
-const handleInput = async(value)=>{
-
-  setInputValue(value)
-
-  //pagination itt: új embernél le kell nullázni az  options arrayt, és amyg ugyanaz az ember van , addig a nexturlt adni a utilnak
-// ezt lehet a utilba kellene eleve összegyűjteni, ott megírogatni a  - nem !
-  if(value !== ""){
-
-    if(nextUrl !== "null"){
-
-
-      let result = await getSearchResults(value)
-      console.log("next result",result.data.info.next)
-      setSearchResults(result.data.results)
-      setNextUrl(result.data.info.next)
-      let optionsArray= searchResults.map((char, i) => char.name)
-      setOptions(optionsArray)
-    }
-  }else{
-    setOptions([])
-  }
-
-
-}
-
-// console.log("inputvalue",inputValue)
-// console.log("options" , options)
-console.log("nexturl" ,nextUrl)
-
-
+  // console.log("options homepageben : ", options)
+  useEffect(() => {
+    if (!characterContext.includes(data)) setCharacterContext([...data]);
+  }, [data]);
 
   return (
     <div>
-    <Autocomplete 
-    
+      <MuiAutocomplete {...{ options, setOptions }} />
 
+      {options.length ? (
+        <div className={styles.cardContainer}>
+          {options.map((searchedChar) => (
+            <Character key={searchedChar.id} char={searchedChar} />
+          ))}
+        </div>
+      ) : (
+        <div className={styles.cardContainer}>
+          {data.map((char) => (
+            <Link
+              to={`${char.id}`}
+              key={char.id}
+              state={{ char, data, nextPage }}
+            >
+              <Character {...{ char }} />
+            </Link>
+          ))}
 
-// filterOptions={(x) => x}
-options={options}
-// filterOptions={(option)=> option.includes(inputValue)}
-onInputChange={(e)=>handleInput(e.target.value)}
-value={inputValue}
-
-renderInput={(params) => <TextField className={styles.autocomplete} {...params} />}
- />
-    <div className={styles.cardContainer} >
-
-   {
-    inputValue
-    ? searchResults.map(searchedChar => <Character key={searchedChar.id} char={searchedChar}/>)
-    :      data.map((char) => (
-      <Link to={`${char.id}`} key={char.id} state={{char, data, nextPage}} >
-      <Character  {...{ char }} />
-      
-      </Link>
-    ))
-
-
-   }
-
-
-    </div>
-
-  <button onClick={handleMore}>More</button>
+          <button onClick={handleMore}>More</button>
+        </div>
+      )}
     </div>
   );
 };
