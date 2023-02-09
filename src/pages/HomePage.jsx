@@ -1,16 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link, useRouteLoaderData } from "react-router-dom";
 import Character from "../components/Character";
-// import characterLoader from "../util/characterLoader";
 import getNextPage from "../util/getNextPage";
 import styles from "./Homepage.module.css";
 import { useContext } from "react";
 import DataContext from "../context/DataContext";
 import getData from "../util/getData";
 import MuiAutocomplete from "../components/MuiAutocomplete.jsx";
-// import { Autocomplete } from "@mui/material"
-// import {TextField} from "@mui/material"
-// import getSearchResults from "../util/getSearchResults"
 
 const HomePage = () => {
   const loaderData = useRouteLoaderData("root");
@@ -26,9 +22,7 @@ const HomePage = () => {
     const getNextPageData = async () => {
       let newData = await getData(nextPage);
 
-      // setNextPage(newData.info.next);
       let newCharactersData = newData.results;
-      // console.log(newCharactersData);
       setData((prevData) => {
         return [...prevData, ...newCharactersData];
       });
@@ -36,7 +30,6 @@ const HomePage = () => {
     getNextPageData();
   };
 
-  // console.log("options homepageben : ", options)
   useEffect(() => {
     if (!characterContext.includes(data)) setCharacterContext([...data]);
   }, [data]);
@@ -52,17 +45,18 @@ const HomePage = () => {
           ))}
         </div>
       ) : (
-        <div className={styles.cardContainer}>
-          {data.map((char) => (
-            <Link
-              to={`${char.id}`}
-              key={char.id}
-              state={{ char, data, nextPage }}
-            >
-              <Character {...{ char }} />
-            </Link>
-          ))}
-
+        <div style={{display:"flex", flexDirection:"column", justifyContent: "center"}}>
+          <div className={styles.cardContainer}>
+            {data.map((char) => (
+              <Link
+                to={`${char.id}`}
+                key={char.id}
+                state={{ char, data, nextPage }}
+              >
+                <Character {...{ char }} />
+              </Link>
+            ))}
+          </div>
           <button onClick={handleMore}>More</button>
         </div>
       )}

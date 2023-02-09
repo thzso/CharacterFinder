@@ -2,9 +2,22 @@ import { Link,NavLink } from "react-router-dom"
 import styles from "./Layout.module.css"
 import footerImage from "../assets/mrpoopybutthole.png"
 import { useState } from "react"
+import { ThemeProvider, createTheme } from '@mui/material';
+// import { red, white } from "@mui/material/colors";
 
 
-
+const theme = createTheme(
+  {
+    palette: {
+      primary: {
+        main: '#ffffff',
+      },
+      secondary: {
+        main: '#FFDD4A',
+      },
+    },
+  }
+)
 
 const Layout =({children})=>{
 
@@ -14,6 +27,7 @@ const Layout =({children})=>{
 
 
   return(
+    <ThemeProvider theme={theme}>
     <div className={styles.container} >
     <header className={styles.header}>
 
@@ -42,6 +56,7 @@ const Layout =({children})=>{
        </footer>
     
        </div>
+       </ThemeProvider>
   )
 }
 export default Layout

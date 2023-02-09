@@ -3,26 +3,27 @@ import { Autocomplete, TextField } from "@mui/material";
 import getPages from "../util/getPages.js";
 import getOptions from "../util/getOptions.js";
 
-const MuiAutocomplete = ({ options, setOptions }) => {
+
+function MuiAutocomplete({ options, setOptions }) {
 
 
 
   const [inputValue, setInputValue] = useState("");
   const [pages, setPages] = useState(null);
-  const [value, setValue] = useState("")
-  console.log("inputValue : ", inputValue)
+  const [value, setValue] = useState("");
+  console.log("inputValue : ", inputValue);
 
   useEffect(() => {
 
-    if(inputValue !== ""){
+    if (inputValue !== "") {
 
       const page = async () => {
         setPages(await getPages(inputValue));
       };
-  
+
       page();
-    }else{
-      setOptions([])
+    } else {
+      setOptions([]);
     }
 
   }, [inputValue]);
@@ -42,16 +43,14 @@ const MuiAutocomplete = ({ options, setOptions }) => {
     }
   }, [pages]);
 
-  console.log("value: ",value)
+  console.log("value: ", value);
 
   // if(inputValue === ""){
   //   setOptions([])
   // }
-
   console.log("options", options);
 
   // console.log("pages: ", pages, "inputValue: ", inputValue);
-
   return (
     <div className="App">
       <Autocomplete
@@ -61,24 +60,23 @@ const MuiAutocomplete = ({ options, setOptions }) => {
               {option.name}
             </li>
           );
-        }}
+        } }
 
         // disablePortal={true}
-         clearOnBlur={false}
+        clearOnBlur={false}
 
-         filterOptions={(options) => options}
-       
+        filterOptions={(options) => options}
+
         options={options}
         // value={}
         onChange={(event, newValue) => {
           setValue(newValue);
-        }}
+        } }
         inputValue={inputValue}
         onInputChange={(e, newValue) => setInputValue(newValue)}
-        renderInput={(params) => <TextField {...params} />}
-      />
+        renderInput={(params) => <TextField {...params} label="search character" sx={{ input: { color: 'white' } }}/>} />
     </div>
   );
-};
+}
 
 export default MuiAutocomplete;
