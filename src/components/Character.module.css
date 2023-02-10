@@ -20,6 +20,7 @@
 
 .grow:hover > div {
   background-color: #ffdd4abd;
+  color: #02b1c8; ;
 
 }
 
@@ -34,3 +35,6 @@
   transition: 1s ease;
   z-index: 1;
   }
+  /* a:hover{
+    color: #02b1c8;
+  } */

@@ -7,6 +7,7 @@ import { useContext } from "react";
 import DataContext from "../context/DataContext";
 import getData from "../util/getData";
 import MuiAutocomplete from "../components/MuiAutocomplete.jsx";
+import { Button } from "@mui/material";
 
 const HomePage = () => {
   const loaderData = useRouteLoaderData("root");
@@ -37,7 +38,7 @@ const HomePage = () => {
   }, [data]);
 
   return (
-    <div>
+    <div className="styles.homepageContainer">
       <MuiAutocomplete {...{ options, setOptions }} />
 
       {options.length ? (
@@ -71,7 +72,10 @@ const HomePage = () => {
               </Link>
             ))}
           </div>
-          <button onClick={handleMore}>More</button>
+          {/* <div> */}
+            <Button style={{margin: "5rem", border: "2px solid white"}} onClick={handleMore}>More</Button>
+            {/* </div> */}
+          
         </div>
       )}
     </div>

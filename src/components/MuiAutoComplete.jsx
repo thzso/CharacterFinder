@@ -52,8 +52,9 @@ function MuiAutocomplete({ options, setOptions }) {
 
   // console.log("pages: ", pages, "inputValue: ", inputValue);
   return (
-    <div className="App">
+    <div >
       <Autocomplete
+        
         renderOption={(props, option) => {
           return (
             <li {...props} key={option.id}>

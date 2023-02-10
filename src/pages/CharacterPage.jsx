@@ -42,13 +42,13 @@ export default function CharacterPage() {
 
   return (
     <div className={styles.container}>
-      <CharacterComponent {...{ character }} />
-
       {prevId !== 0 && (
         <Link to={`/${prevId}`}>
           <button>previous character</button>
         </Link>
       )}
+      <CharacterComponent {...{ character }} />
+
 
       <Link to={`/${nextId}`}>
         <button>next character</button>
