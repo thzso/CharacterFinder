@@ -3,7 +3,12 @@ import { useState } from "react";
 
 export default function Character({ char, isFromEpisode }) {
 
+
+
+
   const [clicked, setClicked] = useState(false);
+
+
 
   return (
     <div

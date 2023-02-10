@@ -8,6 +8,7 @@ import CharacterPage from "./pages/CharacterPage";
 import loaderFunction from "./util/loaderFunction";
 // import characterLoader from "./util/characterLoader";
 import ErrorNoSuchCharacterPage from "./pages/ErrorNoSuchCharacterPage";
+import SearchedChar from "./pages/SearchedCharPage";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,12 @@ const router = createBrowserRouter([
         element: <CharacterPage/>,
         id: "character",
         // loader: characterLoader,
+        errorElement: <ErrorNoSuchCharacterPage/>
+      },
+      { path: "search/:id",
+        element: <SearchedChar/>,
+        
+        
         errorElement: <ErrorNoSuchCharacterPage/>
       }
 

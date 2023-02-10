@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useRouteLoaderData } from "react-router-dom";
-import Character from "../components/Character";
+import Character from "../components/CharacterAvatar";
 import getNextPage from "../util/getNextPage";
 import styles from "./Homepage.module.css";
 import { useContext } from "react";
@@ -43,11 +43,23 @@ const HomePage = () => {
       {options.length ? (
         <div className={styles.cardContainer}>
           {options.map((searchedChar) => (
-            <Character key={searchedChar.id} char={searchedChar} />
+            <Link
+              to={`search/${searchedChar.id}`}
+              key={searchedChar.id}
+              state={{ searchedChar}}
+            >
+              <Character key={searchedChar.id} char={searchedChar} />
+            </Link>
           ))}
         </div>
       ) : (
-        <div style={{display:"flex", flexDirection:"column", justifyContent: "center"}}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+          }}
+        >
           <div className={styles.cardContainer}>
             {data.map((char) => (
               <Link
