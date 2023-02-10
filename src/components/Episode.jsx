@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import getData from "../util/getData";
 import Character from "../components/Character";
 import  styles from "./Episode.module.css"
@@ -8,14 +8,39 @@ import DataContext from "../context/DataContext";
 import filterNewChars from "../util/filterNewChars";
 import getEpisodesCharacters from "../util/getEpisodeCharacters";
 
-const Episode = ({ episode }) => {
+
+
+
+const Episode = ({ episode, value}) => {
+  
+
+  console.log("epizódkártyában value :" ,value)
+
+
 
 
   const {characterContext} = useContext(DataContext)
   const {setCharacterContext} =useContext(DataContext)
   const [show, setShow] = useState(false);
   const [episodeCharacters, setEpisodeCharacters] = useState([]);
+  // const [scrollId, setScrollId] = useState()
   const isFromEpisode = true
+
+  const ref = useRef(null)
+
+  console.log(ref)
+
+if(value !== undefined){
+  console.log(value)
+  console.log("ref.curr",ref.current)
+  console.log("ref.curr.id : ",ref.current.id)
+  if(value == ref.current.id){
+    console.log("igen")
+    ref.current?.scrollIntoView({behavior: 'smooth'})
+
+  }
+}
+
 
   const showCharacters = async () => {
     let idOfChars = episode.characters
@@ -24,24 +49,21 @@ const Episode = ({ episode }) => {
 
     const url = "https://rickandmortyapi.com/api/character/" + idOfChars;
     let charsOfEpisodedata = await getEpisodesCharacters(url);
-    console.log("res, getepisod: ", charsOfEpisodedata)
+    
     
     setEpisodeCharacters(charsOfEpisodedata)
 
     
   };
 
-  // useEffect(()=>{
-  //   // let newChars = episodeCharacters.filter(charArrObj => !characterContext.some(contextObj=> contextObj.id===charArrObj.id))
-  //   // console.log("new characters: ", newChars.length)
 
-  //     setCharacterContext(prev => [...prev,...filterNewChars(episodeCharacters,characterContext)].sort((a,b)=> a.id - b.id))
-    
-  // },[episodeCharacters])
-    // console.log("episode component characterContext : ",characterContext)
   return (
-    <div className="episodeCard">
-      <div className="espisodeInfo">
+  
+
+      
+    <div  className="episodeCard">
+      <div ref={ref} id={episode.id} className="espisodeInfo">
+        <p>{episode.id}</p>
         <p>Episode : {episode.episode}</p>
         <p>Title: {episode.name}</p>
       </div>
@@ -68,6 +90,7 @@ const Episode = ({ episode }) => {
         </div>
       )}
     </div>
+    
   );
 };
 

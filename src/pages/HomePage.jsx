@@ -18,6 +18,8 @@ const HomePage = () => {
 
   const [options, setOptions] = useState([]);
 
+  // console.log(options)
+
   const handleMore = () => {
     const getNextPageData = async () => {
       let newData = await getData(nextPage);

@@ -11,7 +11,7 @@ function MuiAutocomplete({ options, setOptions }) {
   const [inputValue, setInputValue] = useState("");
   const [pages, setPages] = useState(null);
   const [value, setValue] = useState("");
-  console.log("inputValue : ", inputValue);
+  // console.log("inputValue : ", inputValue);
 
   useEffect(() => {
 
@@ -43,12 +43,12 @@ function MuiAutocomplete({ options, setOptions }) {
     }
   }, [pages]);
 
-  console.log("value: ", value);
+  // console.log("value: ", value);
 
   // if(inputValue === ""){
   //   setOptions([])
   // }
-  console.log("options", options);
+  // console.log("options", options);
 
   // console.log("pages: ", pages, "inputValue: ", inputValue);
   return (
