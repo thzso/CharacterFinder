@@ -8,6 +8,7 @@ import DataContext from "../context/DataContext";
 import getData from "../util/getData";
 import axios from "axios";
 import CharacterComponent from "../components/CharacterComponent";
+import { Icon } from "@mui/material";
 
 // a uselocationból a HomePage adatait veszem (next url, eddig lekérdezett karakterek array-e), kezdetben, egyszer használva , hogy legyen egy characterArray-em, onnantól a characterArray szolgáltatja az adatot(meg az urlt meg mindent)
 
@@ -49,6 +50,12 @@ export default function CharacterPage() {
       )}
       <CharacterComponent {...{ character }} />
 
+<Icon style={{color: "red", width: "50px"}}>
+arrow_forward_ios
+</Icon>
+<Icon>
+arrow_back_ios
+</Icon>
 
       <Link to={`/${nextId}`}>
         <button>next character</button>

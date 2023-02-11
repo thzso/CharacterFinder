@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useRouteLoaderData } from "react-router-dom";
-import Character from "../components/CharacterAvatar";
+import CharacterAvatar from "../components/CharacterAvatar";
 import getNextPage from "../util/getNextPage";
 import styles from "./Homepage.module.css";
 import { useContext } from "react";
@@ -38,7 +38,7 @@ const HomePage = () => {
   }, [data]);
 
   return (
-    <div className="styles.homepageContainer">
+    <div className={styles.homepageContainer}>
       <MuiAutocomplete {...{ options, setOptions }} />
 
       {options.length ? (
@@ -47,36 +47,46 @@ const HomePage = () => {
             <Link
               to={`search/${searchedChar.id}`}
               key={searchedChar.id}
-              state={{ searchedChar}}
+              state={{ searchedChar }}
             >
-              <Character key={searchedChar.id} char={searchedChar} />
+              <CharacterAvatar key={searchedChar.id} char={searchedChar} />
             </Link>
           ))}
         </div>
       ) : (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-          }}
-        >
+        // <div
+        //   style={{
+        //     display: "flex",
+        //     flexDirection: "column",
+        //     justifyContent: "center",
+        //   }}
+        // >
+        <>
           <div className={styles.cardContainer}>
             {data.map((char) => (
-              <Link
-                to={`${char.id}`}
-                key={char.id}
-                state={{ char, data, nextPage }}
-              >
-                <Character {...{ char }} />
-              </Link>
+              <div className={styles.linkContainer}>
+                <Link
+                  to={`${char.id}`}
+                  key={char.id}
+                  state={{ char, data, nextPage }}
+                >
+                  <CharacterAvatar {...{ char }} />
+                </Link>
+              </div>
             ))}
           </div>
-          {/* <div> */}
-            <Button style={{margin: "5rem", border: "2px solid white"}} onClick={handleMore}>More</Button>
-            {/* </div> */}
-          
-        </div>
+          <Button
+            style={{
+              border: "2px solid white",
+              width: "fit-content",
+              alignSelf: "center",
+              margin: "3rem",
+            }}
+            onClick={handleMore}
+          >
+            More
+          </Button>
+        </>
       )}
     </div>
   );

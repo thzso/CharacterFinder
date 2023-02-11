@@ -52,7 +52,7 @@ function MuiAutocomplete({ options, setOptions }) {
 
   // console.log("pages: ", pages, "inputValue: ", inputValue);
   return (
-    <div >
+    <div style={{minWidth: "20rem", margin: "auto"}}>
       <Autocomplete
         
         renderOption={(props, option) => {

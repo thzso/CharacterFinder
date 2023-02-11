@@ -7,3 +7,17 @@
   gap: 2rem;
 }
 
+/*homepagecontainer ?  display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center; */
+.homepageContainer{
+  display: flex;
+  flex-direction: column;
+}
+
+
+.linkContainer{
+  min-width: 20rem;
+  padding: 2rem;
+}

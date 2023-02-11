@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import getData from "../util/getData";
-import Character from "./CharacterAvatar";
+import CharacterAvatar from "./CharacterAvatar";
 import styles from "./Episode.module.css";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
@@ -64,7 +64,7 @@ const Episode = ({ episode, value }) => {
         >
           <p>{episodeCharacters.length}</p>
           {episodeCharacters.map((char) => (
-            <Character key={char.id} {...{ char, isFromEpisode }} />
+            <CharacterAvatar key={char.id} {...{ char, isFromEpisode }} />
           ))}
         </div>
       )}
