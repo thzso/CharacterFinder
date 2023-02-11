@@ -1,4 +1,4 @@
-import styles from "./Character.module.css"
+import styles from "./CharacterAvatar.module.css"
 import { useState, useEffect } from "react";
 import axios from "axios";
 

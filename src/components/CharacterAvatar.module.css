@@ -1,11 +1,16 @@
 
 .card{
 
+  /* border: 5px solid red;
+   */
   display: flex;
   flex-direction: column;
   position: relative;
 
   
+}
+img{
+  border-radius: 2rem;
 }
 .info{
   position: absolute;
@@ -16,6 +21,7 @@
   font-size: larger;
   padding: 2rem;
   color: #ffdd4abd;
+  border-radius: 0  0 2rem 2rem;
 }
 
 .grow:hover > div {

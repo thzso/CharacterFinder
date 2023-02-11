@@ -1,8 +1,11 @@
 
-.container{
+.CharacterPageContainer{
+  /* border: 2px dashed black; */
   display: flex;
   flex-direction: column;
-  min-width: 55%;
+  align-items: center;
+  justify-content: center;
+  /* min-width: 55%; */
   /* flex-grow: 1; */
 
     /* flex-direction: column; */
@@ -12,14 +15,23 @@
     /* min-width: min-content; */
 }
 
-
+/* 
 .card{
   color: white;
   display: flex;
   border: 1px solid #dad83c;
   flex-wrap: wrap;
+  border: 10px solid green;
+  /* min-width: 50rem; */
+  
+  /* flex: 1 0 0; */
   
   
+.CharacterPageCharComponentCard{
+  /* border: 2px solid black; */
+  min-width: 30vw;
+ 
+  /* feltétlen kell valamit ezzel mediaQuerizni */
 }
 
 .info{
@@ -30,4 +42,12 @@
 
 a {
     width: max-content;
+}
+
+.characterContainer{
+/* background-color: red; */
+display: flex;
+align-items: center;
+
+
 }

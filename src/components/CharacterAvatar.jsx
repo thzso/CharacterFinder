@@ -1,4 +1,4 @@
-import styles from "./Character.module.css";
+import styles from "./CharacterAvatar.module.css";
 import { useState } from "react";
 export default function Character({ char, isFromEpisode }) {
 

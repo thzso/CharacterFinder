@@ -9,6 +9,7 @@ import getData from "../util/getData";
 import axios from "axios";
 import CharacterComponent from "../components/CharacterComponent";
 import { Icon } from "@mui/material";
+import { Button } from "@mui/material";
 
 // a uselocationból a HomePage adatait veszem (next url, eddig lekérdezett karakterek array-e), kezdetben, egyszer használva , hogy legyen egy characterArray-em, onnantól a characterArray szolgáltatja az adatot(meg az urlt meg mindent)
 
@@ -42,28 +43,33 @@ export default function CharacterPage() {
       : character.id + 1;
 
   return (
-    <div className={styles.container}>
-      {prevId !== 0 && (
-        <Link to={`/${prevId}`}>
-          <button>previous character</button>
+    <div className={styles.CharacterPageContainer}>
+      <div className={styles.characterContainer}>
+        {prevId !== 0 && (
+          <Link to={`/${prevId}`}>
+            <Icon style={{ fontSize: "10rem" }}>arrow_back_ios</Icon>
+          </Link>
+        )}
+        <div className={styles.CharacterPageCharComponentCard}>
+        <CharacterComponent {...{ character }} />
+        </div>
+        <Link to={`/${nextId}`}>
+          <Icon style={{ fontSize: "10rem" }}>arrow_forward_ios</Icon>
         </Link>
-      )}
-      <CharacterComponent {...{ character }} />
-
-<Icon style={{color: "red", width: "50px"}}>
-arrow_forward_ios
-</Icon>
-<Icon>
-arrow_back_ios
-</Icon>
-
-      <Link to={`/${nextId}`}>
-        <button>next character</button>
-      </Link>
+      </div>
 
       <Link to={"/.."}>
         {" "}
-        <button>Back to all characters</button>
+        <Button
+          style={{
+            border: "2px solid white",
+            width: "fit-content",
+            alignSelf: "center",
+            margin: "3rem",
+          }}
+        >
+          Back to all characters
+        </Button>
       </Link>
     </div>
   );
