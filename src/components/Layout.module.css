@@ -8,7 +8,7 @@
 .header {
   display: flex;
   justify-content: space-between;
-  height: 8rem;
+  height: 10rem;
   align-items: center;
   width: 100vw;
   position: relative;
@@ -20,8 +20,16 @@
 }
 .menu{
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 2rem;
-  margin-right: 2rem;
+  /* margin-right: 2rem; */
+  /* width: 15rem;
+  height:5rem; */
+  /* background: mediumslateblue;
+  transition: border-radius 2.2s linear;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1); */
+  margin:5rem;
 }
 
 .main {
@@ -59,7 +67,18 @@
   left: 50%;
   right: 50%;
   margin-left: -50vw;
- ;
+
+
+  
+  
+}
+.footerBlobDiv{
+  background: rgb(0, 200, 255);
+  height: 10rem;
+  width: 10rem;
+  transition: border-radius 2.2s linear;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  display: flex;
 
 }
 
@@ -70,3 +89,14 @@
   
 }
 
+.logoContainer{
+  /* width: var(--width); */
+  /* height: var(--width); */
+  /* margin: 5rem; */
+  width: 20rem;
+  /* height:20rem; */
+  background: #df7fd5;
+  transition: border-radius 2.2s linear;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
+  margin:2rem;
+}

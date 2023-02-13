@@ -1,6 +1,6 @@
 
 .episodeCharactersContainer{
-  display: flex;
+  
 
   flex-direction: row;
   width: 90vw;
@@ -9,6 +9,12 @@
   overflow: auto;
 }
 
-.episodeCharactersContainer div{
+/* .episodeCharactersContainer div{
   width: 10rem;
+} */
+.testDiv{
+  border: 5px dashed black;
+  width: 10rem;
+  border-radius: 50%;
+  /* overflow: hidden; */
 }

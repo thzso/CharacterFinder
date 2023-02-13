@@ -22,7 +22,21 @@ img{
   padding: 2rem;
   color: #ffdd4abd;
   border-radius: 0  0 2rem 2rem;
+  /* max-height: 10%; */
 }
+/* .infoClicked{
+  position: absolute;
+  bottom: 0;
+  background-color: #14293bbf;
+  width: -webkit-fill-available;
+  font-family: monospace;
+  font-size: larger;
+  padding: 2rem;
+  color: #ffdd4abd;
+  border-radius: 2rem;
+  
+  
+} */
 
 .grow:hover > div {
   background-color: #ffdd4abd;

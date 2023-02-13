@@ -4,6 +4,7 @@ import { useContext } from "react";
 import DataContext from "../context/DataContext";
 import { HashLink } from "react-router-hash-link";
 import { Autocomplete, TextField } from "@mui/material";
+import styles from "./EpisodesPage.module.css"
 
 import Episode from "../components/Episode";
 
@@ -43,7 +44,7 @@ const EpisodesPage = () => {
 
   return (
     <div style={{ color: "white" }}>
-      <div>
+      <div  style={{width: "20rem", margin: "auto"}}>
       <Autocomplete 
       options={episodes}
       onChange={(event, newValue) => {
@@ -51,13 +52,15 @@ const EpisodesPage = () => {
       } }
       renderInput={(params) => <TextField {...params} label="search episode" sx={{ input: { color: 'white' } }}/>}
       />
-    <HashLink smooth to="#43">ep 43</HashLink>
+    {/* <HashLink smooth to="#43">ep 43</HashLink> */}
       </div>
+      <div className={styles.episodeContainer}>
       {episodes.map((episode) => (
         <div key={episode.id}>
 <Episode {...{episode, value}} />
         </div>
       ))}
+      </div>
     </div>
   );
 };

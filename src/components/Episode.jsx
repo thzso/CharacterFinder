@@ -9,7 +9,7 @@ import filterNewChars from "../util/filterNewChars";
 import getEpisodesCharacters from "../util/getEpisodeCharacters";
 
 const Episode = ({ episode, value }) => {
-  console.log("epizódkártyában value :", value);
+  console.log(episode)
 
   const { characterContext } = useContext(DataContext);
   const { setCharacterContext } = useContext(DataContext);
@@ -20,12 +20,10 @@ const Episode = ({ episode, value }) => {
 
   const ref = useRef(null);
 
-  console.log(ref);
+ 
 
   if (value !== undefined) {
-    console.log(value);
-    console.log("ref.curr", ref.current);
-    console.log("ref.curr.id : ", ref.current.id);
+
     if (value == ref.current.id) {
       ref.current?.scrollIntoView({ behavior: "smooth" });
     }
@@ -45,9 +43,9 @@ const Episode = ({ episode, value }) => {
   return (
     <div className="episodeCard">
       <div ref={ref} id={episode.id} className="espisodeInfo">
-        <p>{episode.id}</p>
-        <p>Episode : {episode.episode}</p>
-        <p>Title: {episode.name}</p>
+       
+        <p>{episode.name}</p>
+        <p>{episode.episode}, {episode.air_date}</p>
       </div>
       <button
         onClick={() => {
@@ -62,9 +60,10 @@ const Episode = ({ episode, value }) => {
           className={styles.episodeCharactersContainer}
           style={{ display: "flex" }}
         >
-          <p>{episodeCharacters.length}</p>
           {episodeCharacters.map((char) => (
+            <div className={styles.testDiv}>
             <CharacterAvatar key={char.id} {...{ char, isFromEpisode }} />
+            </div>
           ))}
         </div>
       )}
