@@ -1,0 +1,17 @@
+
+
+.testDiv{
+  width: 100px;
+  height: 100px;
+  /* border: 5px solid red; */
+  text-align: center;
+  border-radius: 100%;
+  overflow: hidden;
+}
+
+.testDiv:hover{
+  z-index: 1;
+}
+.AnimatedCharBox_testDivClicked{
+  width: 100px;
+}

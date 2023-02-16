@@ -1,5 +1,5 @@
 
-.episodeCharactersContainer{
+/* .episodeCharactersContainer{
   
 
   flex-direction: row;
@@ -7,14 +7,57 @@
   display: flex;
   gap: 0.5rem;
   overflow: auto;
-}
+} */
 
 /* .episodeCharactersContainer div{
   width: 10rem;
 } */
-.testDiv{
+
+
+/* .testDiv{
   border: 5px dashed black;
   width: 10rem;
   border-radius: 50%;
-  /* overflow: hidden; */
+  /* overflow: hidden; 
+} 
+*/
+
+.episodeCharactersContainer{
+ 
+  background-color: aqua;
+
+  min-height: 800px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.title{
+  letter-spacing: 0.2rem;
+  font-size: 2rem;
+  color: #FFDD4A;
+}
+.espisodeInfo{
+  display: flex;
+  gap: 2rem;
+  align-items: baseline;
+  color: mediumslateblue;
+}
+
+hr{
+  margin: 2rem 0 0 0;
+  border: 1px solid mediumslateblue;
+}
+
+@media screen and (max-width: 752px){
+.espisodeInfo{
+  flex-direction: column;
+  gap: 0;
+}
+.title{
+  letter-spacing: 0.1rem;
+  font-size: 1.5rem;
+  color: #FFDD4A;
+}
+
 }

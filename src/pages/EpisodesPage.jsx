@@ -21,10 +21,6 @@ const EpisodesPage = () => {
   const [value, setValue] = useState()
 
 
-
-  console.log("value", value)
-
-
   useEffect(() => {
     const getEpisodes = async () => {
       let res = await axios.get(nextUrl);
@@ -43,7 +39,7 @@ const EpisodesPage = () => {
 
 
   return (
-    <div style={{ color: "white" }}>
+    <div className= {styles.pageContainer} style={{ color: "white" }}>
       <div  style={{width: "20rem", margin: "auto"}}>
       <Autocomplete 
       options={episodes}
@@ -54,9 +50,9 @@ const EpisodesPage = () => {
       />
     {/* <HashLink smooth to="#43">ep 43</HashLink> */}
       </div>
-      <div className={styles.episodeContainer}>
+      <div className={styles.episodesContainer}>
       {episodes.map((episode) => (
-        <div key={episode.id}>
+        <div className={styles.episode} key={episode.id}>
 <Episode {...{episode, value}} />
         </div>
       ))}

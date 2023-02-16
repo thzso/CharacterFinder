@@ -1,0 +1,31 @@
+/* .MuiOutlinedInput-notchedOutline css-1d3z3hw-MuiOutlinedInput-notchedOutline{
+  border-radius: 50% !important;
+  background-color: aquamarine !important;
+  border-color: red;
+} */
+
+fieldset{
+  border-color: aqua;
+  color: aliceblue;
+}
+
+fieldset{
+  border-color: yellow !important;
+}
+label{
+  color: aqua !important;
+}
+
+/* .MuiAutocomplete-listbox {
+  background-color: aquamarine !important;
+}
+.css-9e5uuu-MuiPaper-root-MuiAutocomplete-paper{
+background-color: black !important;
+}
+.css-1p95wn3-MuiAutocomplete-listbox .MuiAutocomplete-option{
+  background-color: black !important;
+} */
+
+.css-6wwd73-MuiAutocomplete-noOptions{
+  color : green !important;
+}

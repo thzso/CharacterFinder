@@ -9,6 +9,8 @@
 
   
 }
+
+
 img{
   border-radius: 2rem;
 }
@@ -24,6 +26,11 @@ img{
   border-radius: 0  0 2rem 2rem;
   /* max-height: 10%; */
 }
+.infoStatic{
+  position: static;
+  word-break: break-all;
+}
+
 /* .infoClicked{
   position: absolute;
   bottom: 0;
@@ -42,6 +49,7 @@ img{
   background-color: #ffdd4abd;
   color: #02b1c8; ;
 
+
 }
 
 .grow {
@@ -58,3 +66,11 @@ img{
   /* a:hover{
     color: #02b1c8;
   } */
+
+
+  @media screen and (max-width: 752px){
+    .info{
+      line-height: 0.5rem;
+      padding: 1rem;
+    }
+  }

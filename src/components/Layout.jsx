@@ -57,34 +57,13 @@ const Layout = ({ children }) => {
 
 
 
-// let last = 0;
-// let changeSpeed = 1500;
-// let rAF;
 
-//useFFEctel? a changespeed a dependecy, a now-t meg kell keresnem , h honnan szedem 
-
-// function render(now) {
-//   if (!last || now - last >= changeSpeed) {
-//     last = now;
-  
-//       refLogo.current.style.borderTopLeftRadius = `${random()}px ${random()}px`;
-//       refLogo.current.style.borderTopRightRadius = `${random()}px ${random()}px`;
-//       refLogo.current.style.borderBottomLeftRadius = `${random()}px ${random()}px`;
-//       refLogo.current.style.borderBottomRightRadius = `${random()}px ${random()}px`;
-    
-//   }
-//   rAF = requestAnimationFrame(render);
-// }
-
-
-
-// render(last);
-// console.log("NOW",now)
 
   return (
     <ThemeProvider theme={theme}>
       <div className={styles.container}>
         <header className={styles.header}>
+          
           <div 
          
           className={styles.logoContainer}
@@ -94,10 +73,7 @@ const Layout = ({ children }) => {
             borderBottomLeftRadius : `${random5}px ${random6}px`,
             borderBottomRightRadius : `${random7}px ${random8}px`
 
-          }}
-          
-          
-          >
+          }}>
           <img className={styles.logo} src={logo} alt="" />
           </div>
           <div 
@@ -119,7 +95,7 @@ const Layout = ({ children }) => {
         <main className={styles.main}>{children}</main>
 
         <footer className={styles.footer}>
-          <div
+          {/* <div
           className={styles.footerBlobDiv}
           style={{
             borderTopLeftRadius: `${random8}px ${random5}px`,
@@ -128,10 +104,10 @@ const Layout = ({ children }) => {
             borderBottomRightRadius : `${random4}px ${random3}px`
 
           }}
-          
-          ></div>
+          ></div> */}
           <img className={styles.footerImage} src={footerImage} alt="" />
           <p>Rick&Morty Api</p>
+          <div></div>
         </footer>
       </div>
     </ThemeProvider>

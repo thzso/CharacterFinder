@@ -1,8 +1,7 @@
 import styles from "./CharacterAvatar.module.css";
 import { useState } from "react";
 import { height } from "@mui/system";
-export default function Character({ char, isFromEpisode }) {
-
+export default function Character({ char, isFromEpisode, clickedChar }) {
   const [clicked, setClicked] = useState(false);
 
   return (
@@ -11,20 +10,20 @@ export default function Character({ char, isFromEpisode }) {
       onClick={() => setClicked(!clicked)}
     >
       <img src={char.image} alt="" />
-      <div  style={{ maxHeight: clicked? "": "10%"}} className={styles.info}>
-        {char.name}
-        
-        
-        
-      {isFromEpisode && clicked && 
-      <div>
-        <p>{char.location.name}</p>
-        <p>{char.gender}</p>
-        <p>{char.species}</p>
-      
-      </div>}
-        
-        </div>
+      <div
+        style={{ maxHeight: clicked ? "" : "10%" }}
+        className={!clickedChar ? styles.info : styles.infoStatic}
+      >
+       <span>{char.name}</span> 
+
+        {isFromEpisode && clicked && (
+          <div>
+            <span style={{display: "block"}}>Origin: {char.location.name}</span>
+            <span style={{display: "block"}}>Gender: {char.gender}</span>
+            <span style={{display: "block"}}>Species: {char.species}</span>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

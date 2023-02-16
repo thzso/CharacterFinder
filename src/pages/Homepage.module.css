@@ -5,6 +5,7 @@
   justify-content: center;
   flex-wrap: wrap;
   gap: 2rem;
+  margin: 5rem 2rem 5rem 2rem;
 }
 
 /*homepagecontainer ?  display: flex;
@@ -14,10 +15,12 @@ align-items: center; */
 .homepageContainer{
   display: flex;
   flex-direction: column;
+
+  /* width: 100%; */
 }
 
 
 .linkContainer{
   min-width: 20rem;
-  padding: 2rem;
+  /* padding: 2rem; */
 }

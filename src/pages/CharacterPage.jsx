@@ -42,19 +42,24 @@ export default function CharacterPage() {
         : loadMoreData("https://rickandmortyapi.com/api/character?page=10")
       : character.id + 1;
 
+
+      useEffect(() => {
+        window.scrollTo(0, 0);
+      }, []);
   return (
+  
     <div className={styles.CharacterPageContainer}>
       <div className={styles.characterContainer}>
         {prevId !== 0 && (
           <Link to={`/${prevId}`}>
-            <Icon style={{ fontSize: "10rem" }}>arrow_back_ios</Icon>
+            <Icon >arrow_back_ios</Icon>
           </Link>
         )}
         <div className={styles.CharacterPageCharComponentCard}>
         <CharacterComponent {...{ character }} />
         </div>
         <Link to={`/${nextId}`}>
-          <Icon style={{ fontSize: "10rem" }}>arrow_forward_ios</Icon>
+          <Icon>arrow_forward_ios</Icon>
         </Link>
       </div>
 
@@ -72,5 +77,6 @@ export default function CharacterPage() {
         </Button>
       </Link>
     </div>
+ 
   );
 }
