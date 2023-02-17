@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,900;1,300&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,900;1,300&display=swap");
 
 a {
   font-weight: 500;
-  
-  color: #FFDD4A;
+
+  color: #ffdd4a;
   text-decoration: inherit;
 }
 a:hover {
@@ -12,10 +11,10 @@ a:hover {
 }
 
 body {
-  font-family: 'Rubik', sans-serif;
+  font-family: "Rubik", sans-serif;
   margin: 0;
   background-color: #190833;
- min-height: 100vh; 
+  min-height: 100vh;
   overflow-x: hidden;
 }
 
@@ -24,60 +23,23 @@ h1 {
   line-height: 1.1;
 }
 
-
-
-
-
-/* .css-1m84i9m-MuiButtonBase-root-MuiButton-root{
-
-  border: 2px solid #02b1c8  !important;
-  width: fit-content !important;
-  align-self: center !important;
-  color: #372554 !important;
-  font-weight: 500 !important;
-  font-family: 'Rubik', sans-serif !important;
-  letter-spacing: 0.2rem !important;
-  padding: 1rem 2rem 1rem 2rem !important;
-  background-color:  #FFDD4A!important;
-  margin: 2rem !important;
-}
-
-.css-1m84i9m-MuiButtonBase-root-MuiButton-root:hover{
-  background-color: #ffd0005a !important;
- 
-} */
-
-.css-6wwd73-MuiAutocomplete-noOptions{
+.css-6wwd73-MuiAutocomplete-noOptions {
   color: #190833 !important;
 }
 
-
-
-.MuiFormControl-root, .MuiTextField-root {
+.MuiFormControl-root,
+.MuiTextField-root {
   border: 5px dashed green;
 }
 
-
-.MuiAutocomplete-hasPopupIcon.css-1qqsdnr-MuiAutocomplete-root .MuiOutlinedInput-root, .MuiAutocomplete-hasClearIcon.css-1qqsdnr-MuiAutocomplete-root .MuiOutlinedInput-root{
-color:#190833 !important;;
- background-color: #ffffffeb !important;
-
+.MuiAutocomplete-hasPopupIcon.css-1qqsdnr-MuiAutocomplete-root
+  .MuiOutlinedInput-root,
+.MuiAutocomplete-hasClearIcon.css-1qqsdnr-MuiAutocomplete-root
+  .MuiOutlinedInput-root {
+  color: #190833 !important;
+  background-color: #ffffffeb !important;
 }
 
-
-
-/* .css-1p95wn3-MuiAutocomplete-listbox {
-
-  color: #190833 !important;
-  background-color: rgb(255 255 255 / 85%) !important;
-} */
-
-
-
-/* .myCustomlist{
-  background-color: yellow !important;
-  color: #190833 !important;
-} */
 .myCustomList::-webkit-scrollbar {
   width: 12px;
   background-color: #5f6f9c;
@@ -86,22 +48,20 @@ color:#190833 !important;;
 .myCustomList::-webkit-scrollbar-thumb {
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3) !important;
-  background-color: #df7fd5  !important;
+  background-color: #df7fd5 !important;
 }
 
-.MuiButton-root{
-
-  border: 2px solid #FFDD4A  !important;
+.MuiButton-root {
+  border: 2px solid #ffdd4a !important;
   width: fit-content !important;
   align-self: center !important;
-  color: #FFDD4A !important;
+  color: #ffdd4a !important;
   font-weight: 500 !important;
-  font-family: 'Rubik', sans-serif !important;
+  font-family: "Rubik", sans-serif !important;
   letter-spacing: 0.2rem !important;
   padding: 1rem 2rem 1rem 2rem !important;
-  background-color:  #FFDD4A!important;
+  background-color: #ffdd4a !important;
   margin: 2rem !important;
-
 
   position: relative !important;
   z-index: 1 !important;
@@ -116,48 +76,33 @@ color:#190833 !important;;
   left: 0 !important;
   width: 100% !important;
   height: 100% !important;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    #02b1c8
-  ) !important;
+  background: linear-gradient(to bottom, transparent, #02b1c8) !important;
   z-index: -1 !important;
 }
 .MuiButton-root:hover {
   background: #df7fd5 !important;
 }
 
-.material-icons{
+.material-icons {
   font-size: 5rem !important;
 }
 
-/* .buttonStyle{
-border: 2px solid black;
-color: red;
-} */
-
-
-
-fieldset{
+fieldset {
   border-color: #df7fd5 !important;
-  /* background-color:rgb(255 255 255 / 85%); */
 }
 
-label{
+label {
   color: #190833 !important;
   background: #df7fd5 !important;
   border-radius: 2rem !important;
   padding: 0 1rem 0 1rem !important;
 }
 
-
-
-
-@media screen and (max-width: 752px){
-  .material-icons{
+@media screen and (max-width: 752px) {
+  .material-icons {
     font-size: 2rem !important;
   }
-  .css-1m84i9m-MuiButtonBase-root-MuiButton-root{
+  .css-1m84i9m-MuiButtonBase-root-MuiButton-root {
     margin: 1rem !important;
   }
 }

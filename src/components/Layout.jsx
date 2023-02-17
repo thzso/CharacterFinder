@@ -57,7 +57,7 @@ const Layout = ({ children }) => {
 
       <footer className={styles.footer}>
         <img className={styles.footerImage} src={footerImage} alt="" />
-        <p>Rick&Morty Api</p>
+        <p></p>
         <div></div>
       </footer>
     </div>
