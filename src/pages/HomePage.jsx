@@ -6,7 +6,7 @@ import { useContext } from "react";
 import DataContext from "../context/DataContext";
 import getData from "../util/getData";
 import { Button } from "@mui/material";
-import MuiAutoCompleteComponent from "../components/MuiAutocompleteComponent";
+import SearchInput from "../components/SearchInput";
 
 
 
@@ -38,7 +38,7 @@ const HomePage = () => {
 
   return (
     <div className={styles.homepageContainer}>
-      <MuiAutoCompleteComponent {...{ options, setOptions }} />
+      <SearchInput {...{ options, setOptions }} />
 
       {options.length ? (
         <div className={styles.cardContainer}>
