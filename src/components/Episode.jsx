@@ -7,6 +7,7 @@ import getEpisodesCharacters from "../util/getEpisodeCharacters";
 import AnimatedCharacterBox from "./AnimatedCharBox";
 import { Icon, stepLabelClasses } from "@mui/material";
 
+
 const Episode = ({ episode, value }) => {
   const { characterContext } = useContext(DataContext);
   const { setCharacterContext } = useContext(DataContext);

@@ -5,8 +5,11 @@ import styles from "./Homepage.module.css";
 import { useContext } from "react";
 import DataContext from "../context/DataContext";
 import getData from "../util/getData";
-import MuiAutocompleteComponent from "../components/MuiAutocompleteComponent.jsx";
 import { Button } from "@mui/material";
+import MuiAutoCompleteComponent from "../components/MuiAutocompleteComponent";
+
+
+
 
 
 const HomePage = () => {
@@ -35,7 +38,7 @@ const HomePage = () => {
 
   return (
     <div className={styles.homepageContainer}>
-      <MuiAutocompleteComponent {...{ options, setOptions }} />
+      <MuiAutoCompleteComponent {...{ options, setOptions }} />
 
       {options.length ? (
         <div className={styles.cardContainer}>
