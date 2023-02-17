@@ -3,7 +3,7 @@ import { Autocomplete, TextField } from "@mui/material";
 import getPages from "../util/getPages.js";
 import getOptions from "../util/getOptions.js";
 
-function MuiAutocomplete({ options, setOptions }) {
+function MuiAutoCompleteComponent({ options, setOptions }) {
   const [inputValue, setInputValue] = useState("");
   const [pages, setPages] = useState(null);
 
@@ -80,4 +80,4 @@ function MuiAutocomplete({ options, setOptions }) {
   );
 }
 
-export default MuiAutocomplete;
+export default MuiAutoCompleteComponent;
