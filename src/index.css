@@ -51,9 +51,17 @@ h1 {
   color: #190833 !important;
 }
 
+
+
+.MuiFormControl-root, .MuiTextField-root {
+  border: 5px dashed green;
+}
+
+
 .MuiAutocomplete-hasPopupIcon.css-1qqsdnr-MuiAutocomplete-root .MuiOutlinedInput-root, .MuiAutocomplete-hasClearIcon.css-1qqsdnr-MuiAutocomplete-root .MuiOutlinedInput-root{
 color:#190833 !important;;
  background-color: #ffffffeb !important;
+
 }
 
 
@@ -127,6 +135,23 @@ color:#190833 !important;;
 border: 2px solid black;
 color: red;
 } */
+
+
+
+fieldset{
+  border-color: #df7fd5 !important;
+  /* background-color:rgb(255 255 255 / 85%); */
+}
+
+label{
+  color: #190833 !important;
+  background: #df7fd5 !important;
+  border-radius: 2rem !important;
+  padding: 0 1rem 0 1rem !important;
+}
+
+
+
 
 @media screen and (max-width: 752px){
   .material-icons{

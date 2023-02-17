@@ -65,13 +65,7 @@ const HomePage = () => {
             ))}
           </div>
           <Button
-        
-            // style={{
-            //   border: "2px solid white",
-            //   width: "fit-content",
-            //   alignSelf: "center",
-            //   margin: "3rem",
-            // }}
+
             onClick={handleMore}
           >
             More

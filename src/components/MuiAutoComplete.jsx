@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Autocomplete, TextField } from "@mui/material";
 import getPages from "../util/getPages.js";
 import getOptions from "../util/getOptions.js";
+import styles from "./MuiAutocomplete.module.css"
 
 function MuiAutocomplete({ options, setOptions }) {
   const [inputValue, setInputValue] = useState("");
