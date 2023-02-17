@@ -2,13 +2,13 @@ import styles from "./AnimatedCharacterBox.module.css";
 import { useEffect, useRef, useState } from "react";
 import CharacterAvatar from "./CharacterAvatar";
 
-const AnimatedCharacterBox = ({ char, isFromEpisode, episodeCardWidth }) => {
+const AnimatedCharacterBox = ({ char, isFromEpisode, episodeCardWidth, stoppedCharacters, setStoppedCharacters }) => {
   const testRef = useRef(null);
   const [newHeightDimension, setNewHeightDimension] = useState(0);
   const [newWidthDimension, setNewWidthDimension] = useState(0);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [slower, setSlower] = useState(false);
-  const [clickedChar, setClickedChar] = useState(false)
+  // const [clickedChar, setClickedChar] = useState(false)
 
   useEffect(() => {
     const handleWindowResize = () => {
@@ -22,7 +22,7 @@ const AnimatedCharacterBox = ({ char, isFromEpisode, episodeCardWidth }) => {
     };
   });
 
-  console.log("window",windowWidth)
+  // console.log("window",windowWidth)
 
   function makeNewPosition() {
     //   Get viewport dimensions (remove the dimension of the div)
@@ -68,17 +68,17 @@ const AnimatedCharacterBox = ({ char, isFromEpisode, episodeCardWidth }) => {
       ref={testRef}
       key={char.id}
       id={char.id}
-      className={clickedChar? styles.AnimatedCharBox_testDivClicked : styles.testDiv}
+      className={styles.testDiv}
       style={{
-        position: clickedChar? "static":"absolute",
-        translate: clickedChar? "0":  `${newWidthDimension}px ${newHeightDimension}px`,
-        transition: clickedChar? {} : char.id % 2 === 0 ? "translate 3s" : "translate 8s",
+        position: "absolute",
+        translate: `${newWidthDimension}px ${newHeightDimension}px`,
+        transition: char.id % 2 === 0 ? "translate 3s" : "translate 8s",
         
       }}
-     onClick={(e)=> console.log(setClickedChar(!clickedChar))}
+     onClick={(e)=> setStoppedCharacters(prev => [...prev,char])}
     >
 
-        <CharacterAvatar {...{ char, isFromEpisode, clickedChar }} />
+        <CharacterAvatar {...{ char, isFromEpisode }} />
       </div>
    
   );

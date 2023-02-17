@@ -1,8 +1,11 @@
 import styles from "./CharacterAvatar.module.css";
 import { useState } from "react";
 import { height } from "@mui/system";
-export default function Character({ char, isFromEpisode, clickedChar }) {
+
+export default function Character({ char, isFromEpisode, clickedChar}) {
   const [clicked, setClicked] = useState(false);
+
+
 
   return (
     <div
