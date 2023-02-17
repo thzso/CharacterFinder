@@ -4,28 +4,21 @@
   border-color: red;
 } */
 
-fieldset{
+/* fieldset{
   border-color: aqua;
   color: aliceblue;
-}
-
-fieldset{
-  border-color: yellow !important;
-}
-label{
-  color: aqua !important;
-}
-
-/* .MuiAutocomplete-listbox {
-  background-color: aquamarine !important;
-}
-.css-9e5uuu-MuiPaper-root-MuiAutocomplete-paper{
-background-color: black !important;
-}
-.css-1p95wn3-MuiAutocomplete-listbox .MuiAutocomplete-option{
-  background-color: black !important;
 } */
 
-.css-6wwd73-MuiAutocomplete-noOptions{
-  color : green !important;
+fieldset{
+  border-color: #df7fd5 !important;
+  /* background-color:rgb(255 255 255 / 85%); */
 }
+label{
+  color: #190833 !important;
+  background: #df7fd5 !important;
+  border-radius: 2rem !important;
+  padding: 0 1rem 0 1rem !important;
+}
+
+
+

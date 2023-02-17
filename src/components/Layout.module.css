@@ -1,9 +1,8 @@
-.container{
+.container {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
 }
-
 
 .header {
   display: flex;
@@ -15,35 +14,23 @@
   left: 50%;
   right: 50%;
   margin-left: -50vw;
-
-
 }
-.menu{
+.menu {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 2rem;
-  /* margin-right: 2rem; */
-  /* width: 15rem;
-  height:5rem; */
-  /* background: mediumslateblue;
-  transition: border-radius 2.2s linear;
-  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1); */
-  margin:5rem;
+  margin: 5rem;
 }
 
 .main {
   display: flex;
   justify-content: center;
   flex-grow: 1;
-  /* background-color: antiquewhite; */
 }
 .logo {
-
   max-width: 20rem;
   z-index: 1;
-
-  
 
   flex-shrink: 1;
   min-width: 1rem;
@@ -51,81 +38,47 @@
   position: absolute;
   left: -50%;
   top: 2rem;
- 
-
-  /* margin: 1rem;
-  position: fixed; */
-  /* top: 0;
-  left: 2rem; */
-
 }
-.footer{
-  /* position: fixed; */
+.footer {
   bottom: 0;
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
-  height: 5rem;
-  /* background-color: mediumslateblue; */
-  background: linear-gradient(#372554 , mediumslateblue);
+  background: linear-gradient(#190833, #4b45c1);
   width: 100vw;
   position: relative;
   left: 50%;
   right: 50%;
   margin-left: -50vw;
-margin-top: 5rem;
-
-  
-  
 }
-/* .footerBlobDiv{
-  background: rgb(0, 200, 255);
-  height: 10rem;
-  width: 10rem;
-  transition: border-radius 2.2s linear;
-  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
-  display: flex;
 
-
-} */
-
-.footerImage{
-
-  height: 20rem;
+.footerImage {
+  height: 15rem;
   z-index: 2;
-  
 }
 
-.logoContainer{
-  /* width: var(--width); */
-  /* height: var(--width); */
-  /* margin: 5rem; */
+.logoContainer {
   width: 10rem;
-  height:10rem;
+  height: 10rem;
   position: relative;
-  /* height:20rem; */
   background: #df7fd5;
   transition: border-radius 2.2s linear;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
-  /* margin:2rem; */
   margin-left: 6rem;
 }
 
-
-@media screen and (max-width: 752px){
-  .header{
-    /* background-color: azure; */
+@media screen and (max-width: 752px) {
+  .header {
     flex-direction: column;
     height: fit-content;
   }
-  .menu{
+  .menu {
     margin: 0 0rem 2rem 0;
   }
-  .footerImage{
+  .footerImage {
     height: 10rem;
   }
-  .logoContainer{
+  .logoContainer {
     margin: 1rem 0 2rem 0;
   }
-  
 }

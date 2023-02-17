@@ -1,5 +1,4 @@
-
-.cardContainer{
+.cardContainer {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -8,19 +7,11 @@
   margin: 5rem 2rem 5rem 2rem;
 }
 
-/*homepagecontainer ?  display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center; */
-.homepageContainer{
+.homepageContainer {
   display: flex;
   flex-direction: column;
-
-  /* width: 100%; */
 }
 
-
-.linkContainer{
+.linkContainer {
   min-width: 20rem;
-  /* padding: 2rem; */
 }

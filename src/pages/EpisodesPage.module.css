@@ -1,24 +1,15 @@
-.episodeContainer{
-  background-color: blue;
-}
-
-.pageContainer{
+.pageContainer {
   display: flex;
   flex-direction: column;
   width: 100%;
 }
-.episodesContainer{
+.episodesContainer {
   display: flex;
-
   flex-direction: column;
-  gap: 5rem;
+  gap: 2rem;
   margin: 3rem;
-  /* align-items: center; */
-  
 }
 
-.episode{
+.episode {
   flex: 1 1 auto;
 }
-
-

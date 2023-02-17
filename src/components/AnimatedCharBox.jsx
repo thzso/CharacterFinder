@@ -2,85 +2,79 @@ import styles from "./AnimatedCharacterBox.module.css";
 import { useEffect, useRef, useState } from "react";
 import CharacterAvatar from "./CharacterAvatar";
 
-const AnimatedCharacterBox = ({ char, isFromEpisode, episodeCardWidth, stoppedCharacters, setStoppedCharacters }) => {
+const AnimatedCharacterBox = ({
+  char,
+  isFromEpisode,
+  episodeCardWidth,
+  stoppedCharacters,
+  setStoppedCharacters,
+  windowWidth,
+}) => {
   const testRef = useRef(null);
   const [newHeightDimension, setNewHeightDimension] = useState(0);
   const [newWidthDimension, setNewWidthDimension] = useState(0);
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
   const [slower, setSlower] = useState(false);
-  // const [clickedChar, setClickedChar] = useState(false)
-
-  useEffect(() => {
-    const handleWindowResize = () => {
-      setWindowWidth(window.innerWidth);
-    };
-
-    window.addEventListener('resize', handleWindowResize);
-
-    return () => {
-      window.removeEventListener('resize', handleWindowResize);
-    };
-  });
-
-  // console.log("window",windowWidth)
 
   function makeNewPosition() {
     //   Get viewport dimensions (remove the dimension of the div)
-    // nálam nem window, hanem befoglalódiv
-    var h = 800 - testRef.current.clientHeight;
-    var w = windowWidth - testRef.current.clientWidth;
 
+    var h = 800 - 150;
+    var w = windowWidth - 150;
     setNewHeightDimension(Math.floor(Math.random() * h));
     setNewWidthDimension(Math.floor(Math.random() * w));
   }
-  // console.log(newHeightDimension, newWidthDimension)
 
   useEffect(() => {
-    if (testRef.current.id % 2 === 0) {
-      makeNewPosition();
+    if (windowWidth >= 752) {
+      if (testRef.current.id % 2 === 0) {
+        const interval = setInterval(() => {
+          makeNewPosition();
+        }, 3000);
 
-      const interval = setInterval(() => {
+        return () => clearInterval(interval);
+      } else {
         makeNewPosition();
-      }, 3000);
 
-      return () => clearInterval(interval);
-    } else {
-      makeNewPosition();
+        const interval = setInterval(() => {
+          makeNewPosition();
+        }, 8000);
 
-      const interval = setInterval(() => {
-        makeNewPosition();
-      }, 8000);
-
-      return () => clearInterval(interval);
+        return () => clearInterval(interval);
+      }
     }
-  }, []);
-
-  // function animateDiv(myclass){
-  //   var newq = makeNewPosition();
-  //   $(myclass).animate({ top: newq[0], left: newq[1] }, 5000,   function(){
-  //     animateDiv(myclass);
-  //   });
-
-  // };
+  }, [windowWidth]);
 
   return (
-    <div
-      ref={testRef}
-      key={char.id}
-      id={char.id}
-      className={styles.testDiv}
-      style={{
-        position: "absolute",
-        translate: `${newWidthDimension}px ${newHeightDimension}px`,
-        transition: char.id % 2 === 0 ? "translate 3s" : "translate 8s",
-        
-      }}
-     onClick={(e)=> setStoppedCharacters(prev => [...prev,char])}
-    >
-
-        <CharacterAvatar {...{ char, isFromEpisode }} />
-      </div>
-   
+    <>
+      {windowWidth >= 752 ? (
+        <div
+          ref={testRef}
+          key={char.id}
+          id={char.id}
+          className={styles.testDiv}
+          style={{
+            position: "absolute",
+            translate: `${newWidthDimension}px ${newHeightDimension}px`,
+            transition: char.id % 2 === 0 ? "translate 3s" : "translate 8s",
+            overflow: "visible",
+            width: "150px",
+            height: "150px",
+          }}
+          onClick={(e) => setStoppedCharacters((prev) => [...prev, char])}
+        >
+          <img
+            style={{ width: "150px", height: "150px", borderRadius: "100%" }}
+            src={char.image}
+            alt=""
+            srcset=""
+          />
+        </div>
+      ) : (
+        <div className={styles.animatedCharDivIfNotanimated}>
+          <CharacterAvatar {...{ char, isFromEpisode }} />
+        </div>
+      )}
+    </>
   );
 };
 

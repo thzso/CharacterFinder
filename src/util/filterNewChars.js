@@ -3,9 +3,7 @@ const filterNewChars = (newArr, contextArr) => {
     (charArrObj) =>
       !contextArr.some((contextObj) => contextObj.id === charArrObj.id)
   );
-
   return newChars;
 };
-// console.log("new characters: ", newChars.length);
 
-export default filterNewChars
+export default filterNewChars;

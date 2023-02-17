@@ -5,7 +5,7 @@ import { useContext } from "react";
 import DataContext from "../context/DataContext";
 import getEpisodesCharacters from "../util/getEpisodeCharacters";
 import AnimatedCharacterBox from "./AnimatedCharBox";
-import { Icon } from "@mui/material";
+import { Icon, stepLabelClasses } from "@mui/material";
 
 const Episode = ({ episode, value }) => {
   const { characterContext } = useContext(DataContext);
@@ -15,21 +15,39 @@ const Episode = ({ episode, value }) => {
   const [animatedCharacters, setAnimatedCharacters] = useState([]);
   const [stoppedCharacters, setStoppedCharacters] = useState([]);
   const [episodeCardWidth, setEpisodeCardWidth] = useState(0);
-
-
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   useEffect(() => {
-    console.log("bejött");
-    setAnimatedCharacters((prev) =>  prev.filter((animated) =>!stoppedCharacters.some((stopped) => stopped.id === animated.id)));
+    const handleWindowResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleWindowResize);
+
+    return () => {
+      window.removeEventListener("resize", handleWindowResize);
+    };
+  });
+
+  useEffect(() => {
+    setAnimatedCharacters((prev) =>
+      prev.filter(
+        (animated) =>
+          !stoppedCharacters.some((stopped) => stopped.id === animated.id)
+      )
+    );
   }, [stoppedCharacters]);
 
-  // const [scrollId, setScrollId] = useState()
+  useEffect(() => {
+    if (windowWidth < 752) {
+      setAnimatedCharacters(episodeCharacters);
+      setStoppedCharacters([]);
+    }
+  }, [windowWidth]);
   const isFromEpisode = true;
 
   const ref = useRef(null);
   const refEpisodeCard = useRef(null);
-
-  // console.log(episodeCardWidth);
 
   useLayoutEffect(() => {
     setEpisodeCardWidth(refEpisodeCard.current.offsetWidth);
@@ -58,7 +76,7 @@ const Episode = ({ episode, value }) => {
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <div ref={ref} id={episode.id} className={styles.espisodeInfo}>
           <span className={styles.title}>{episode.name}</span>
-          <span>
+          <span className={styles.episodeDate}>
             {episode.episode}, {episode.air_date}
           </span>
         </div>
@@ -66,6 +84,7 @@ const Episode = ({ episode, value }) => {
           onClick={() => {
             showCharacters(episode.characters);
             setShow(!show);
+            setStoppedCharacters([]);
           }}
         >
           {/* <span> Characters </span> */}
@@ -88,26 +107,19 @@ const Episode = ({ episode, value }) => {
           <div className={styles.episode_stoppedChars}>
             {stoppedCharacters.length !== 0 &&
               stoppedCharacters.map((char) => (
-                <div
-                onClick={()=> console.log("click", char.id)}
-                
-                >
-                  
-                  <CharacterAvatar
-                    key={char.id}
-                    {...{ char, isFromEpisode }}
-                  />
+                <div style={{ width: "200px" }}>
+                  <CharacterAvatar key={char.id} {...{ char, isFromEpisode }} />
                 </div>
               ))}
           </div>
-          {/* <span >Click a character to make it stop!</span> */}
 
           <div
+            className={styles.episode_charContainerOnWindowWidth}
             style={{
-              position: "relative",
-              margin: "0 ",
-              padding: "0",
-              height: animatedCharacters.length > 0 ? "800px" : "0",
+              height:
+                (windowWidth > 752 && animatedCharacters.length) > 0
+                  ? "800px"
+                  : "auto",
             }}
           >
             {animatedCharacters.map((char) => (
@@ -119,6 +131,7 @@ const Episode = ({ episode, value }) => {
                   episodeCardWidth,
                   stoppedCharacters,
                   setStoppedCharacters,
+                  windowWidth,
                 }}
               />
             ))}

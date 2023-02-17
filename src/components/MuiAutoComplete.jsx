@@ -2,13 +2,10 @@ import { useEffect, useState } from "react";
 import { Autocomplete, TextField } from "@mui/material";
 import getPages from "../util/getPages.js";
 import getOptions from "../util/getOptions.js";
-import styles from "./MuiAutocomplete.module.css";
 
 function MuiAutocomplete({ options, setOptions }) {
   const [inputValue, setInputValue] = useState("");
   const [pages, setPages] = useState(null);
-  const [value, setValue] = useState("");
-  // console.log("inputValue : ", inputValue);
 
   useEffect(() => {
     if (inputValue !== "") {
@@ -36,39 +33,19 @@ function MuiAutocomplete({ options, setOptions }) {
     }
   }, [pages]);
 
-  // console.log("value: ", value);
-
-  // if(inputValue === ""){
-  //   setOptions([])
-  // }
-  // console.log("options", options);
-
-  // console.log("pages: ", pages, "inputValue: ", inputValue);
-
   return (
     <div style={{ minWidth: "20rem", margin: "auto" }}>
       <Autocomplete
-      // open={true}
         componentsProps={{
           paper: {
             sx: {
-              backgroundColor: "transparent",
-              color: "green",
+              backgroundColor: "rgb(255 255 255 / 85%)",
             },
           },
-          noOptions:{
-            sx:{
-                 color: "green",
-            }
-         
-          }
-          // listbox: {
-          //   sx: {
-          //     color: "green",
-          //   },
-          // },
         }}
-       
+        ListboxProps={{
+          className: "myCustomList",
+        }}
         renderOption={(props, option) => {
           return (
             <li
@@ -95,7 +72,7 @@ function MuiAutocomplete({ options, setOptions }) {
           <TextField
             {...params}
             label="search character"
-            sx={{ input: { color: "red" }, button: { color: "white" } }}
+            sx={{ button: { color: "#df7fd5" } }}
           ></TextField>
         )}
       />

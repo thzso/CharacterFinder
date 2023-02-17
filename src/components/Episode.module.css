@@ -1,76 +1,55 @@
-
-/* .episodeCharactersContainer{
-  
-
-  flex-direction: row;
-  width: 90vw;
-  display: flex;
-  gap: 0.5rem;
-  overflow: auto;
-} */
-
-/* .episodeCharactersContainer div{
-  width: 10rem;
-} */
-
-
-/* .testDiv{
-  border: 5px dashed black;
-  width: 10rem;
-  border-radius: 50%;
-  /* overflow: hidden; 
-} 
-*/
-
-.episodeCharactersContainer{
- 
-  background-color: aqua;
-
-  
+.episodeCharactersContainer {
   display: flex;
   flex-direction: column;
-
+  margin: 2rem 0 2rem 0;
 }
 
-.episode_stoppedChars{
-  background-color: red;
+.episode_stoppedChars {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
 }
 
-.title{
+.title {
   letter-spacing: 0.2rem;
   font-size: 2rem;
-  color: #FFDD4A;
+  color: #ffdd4a;
 }
-.espisodeInfo{
+
+.episodeDate {
+  color: #ffde4a9a;
+}
+.espisodeInfo {
   display: flex;
   gap: 2rem;
   align-items: baseline;
   color: mediumslateblue;
 }
 
-hr{
-  margin: 2rem 0 0 0;
+hr {
   border: 1px solid mediumslateblue;
 }
 
-/* .episode_stoppedChars [class="_info_17yao_33"] {
-  position: static;
-} */
-
-
-
-@media screen and (max-width: 752px){
-.espisodeInfo{
-  flex-direction: column;
-  gap: 0;
-}
-.title{
-  letter-spacing: 0.1rem;
-  font-size: 1.5rem;
-  color: #FFDD4A;
+.charContainerOnWindowWidth {
+  position: relative;
+  margin: 0;
+  padding: 0;
 }
 
+@media screen and (max-width: 752px) {
+  .espisodeInfo {
+    flex-direction: column;
+    gap: 0;
+  }
+  .title {
+    letter-spacing: 0.1rem;
+    font-size: 1.5rem;
+    color: #ffdd4a;
+  }
+  .episode_charContainerOnWindowWidth {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
 }

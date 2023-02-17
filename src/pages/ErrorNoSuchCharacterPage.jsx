@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
+// import { Button } from "@mui/material";
 
 const ErrorNoSuchCharacterPage = () => {
   return (
     <div>
-      no such char
       <Link to={"/.."}>
         {" "}
-        <button>Back to all characters</button>
+        {/* <Button>Back to all characters</Button> */}
       </Link>
     </div>
   );

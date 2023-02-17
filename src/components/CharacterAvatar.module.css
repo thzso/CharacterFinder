@@ -1,76 +1,50 @@
+.card {
 
-.card{
-
-  /* border: 5px solid red;
-   */
   display: flex;
   flex-direction: column;
   position: relative;
-
-  
+  border-radius: 2rem;
+  box-shadow: rgb(255 255 255 / 31%) 0px 4px 12px
 }
 
 
-img{
+img {
   border-radius: 2rem;
 }
-.info{
+
+.info {
   position: absolute;
   bottom: 0;
-  background-color: #14293bbf;
+  background-color: #3725549e;
   width: -webkit-fill-available;
   font-family: monospace;
   font-size: larger;
   padding: 2rem;
-  color: #ffdd4abd;
-  border-radius: 0  0 2rem 2rem;
-  /* max-height: 10%; */
+  color: #FFDD4A;
+  border-radius: 0 0 2rem 2rem;
+  max-height: 55%;
 }
-.infoStatic{
+
+.infoStatic {
   position: static;
   word-break: break-all;
 }
 
-/* .infoClicked{
-  position: absolute;
-  bottom: 0;
-  background-color: #14293bbf;
-  width: -webkit-fill-available;
-  font-family: monospace;
-  font-size: larger;
-  padding: 2rem;
-  color: #ffdd4abd;
-  border-radius: 2rem;
-  
-  
-} */
 
-.grow:hover > div {
+.grow:hover>div {
   background-color: #ffdd4abd;
-  color: #02b1c8; ;
-
-
+  color: #02b1c8;
+  ;
 }
 
 .grow {
   transition: 1s ease;
-  }
-  
-  .grow:hover{
+}
+
+.grow:hover {
   -webkit-transform: scale(1.1);
   -ms-transform: scale(1.1);
   transform: scale(1.1);
   transition: 1s ease;
   z-index: 1;
-  }
-  /* a:hover{
-    color: #02b1c8;
-  } */
-
-
-  @media screen and (max-width: 752px){
-    .info{
-      line-height: 0.5rem;
-      padding: 1rem;
-    }
-  }
+}
