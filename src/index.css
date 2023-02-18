@@ -44,9 +44,9 @@ h1 {
 .MuiAutocomplete-paper{
   color: #190833 !important;
 }
-.MuiAutocomplete-root	{
+/* .MuiAutocomplete-root	{
 cursor:pointer;
-}
+} */
 
 
 .myCustomList::-webkit-scrollbar {

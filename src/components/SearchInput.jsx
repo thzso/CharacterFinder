@@ -6,6 +6,10 @@ import getOptions from "../util/getOptions.js";
 const  SearchInput = ({ options, setOptions })=> {
   const [inputValue, setInputValue] = useState("");
   const [pages, setPages] = useState(null);
+  const [value, setValue]= useState("")
+
+  console.log("value: ", value, "options: ", options)
+
 
   useEffect(() => {
     if (inputValue !== "") {
@@ -36,6 +40,9 @@ const  SearchInput = ({ options, setOptions })=> {
   return (
     <div style={{ minWidth: "20rem", margin: "auto" }}>
       <Autocomplete
+      value={value}
+      isOptionEqualToValue={(option, value) => option.id === value.id}
+
         componentsProps={{
           paper: {
             sx: {
@@ -49,10 +56,7 @@ const  SearchInput = ({ options, setOptions })=> {
         renderOption={(props, option) => {
           return (
             <li
-              sx={{
-                backgroundColor: "red",
-                color: "orange",
-              }}
+
               {...props}
               key={option.id}
             >
@@ -63,7 +67,8 @@ const  SearchInput = ({ options, setOptions })=> {
         clearOnBlur={false}
         filterOptions={(options) => options}
         options={options}
-        onChange={(event, newValue) => {
+        //onchange helyett kipróbálva
+        onChange={(e, newValue) => {
           setValue(newValue);
         }}
         inputValue={inputValue}
