@@ -57,7 +57,8 @@ const AnimatedCharacterBox = ({
 
   useEffect(()=>{
 
-    console.log("useefect üres dep array")
+    if(newHeightDimension === 0 && newHeightDimension===0)
+    console.log("newHeightDimension === 0", newHeightDimension,newWidthDimension)
   },[])
 
   return (
