@@ -20,7 +20,7 @@ const Episode = ({ episode, value }) => {
   const ref = useRef(null);
   const refEpisodeCard = useRef(null);
 
-  console.log(value);
+  // console.log(value);
 
   // console.log(ref.current, value)
 
@@ -61,6 +61,8 @@ const Episode = ({ episode, value }) => {
   const scroll = () => {
     if (value !== null) {
       if (value.id == ref.current.id) {
+
+        
         ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     }

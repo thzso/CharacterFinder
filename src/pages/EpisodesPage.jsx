@@ -12,7 +12,7 @@ const EpisodesPage = () => {
   );
   const [value, setValue] = useState(null);
 
-  console.log("value: ", value, "options: ", episodes)
+  // console.log("value: ", value, "options: ", episodes)
 
   useEffect(() => {
     const getEpisodes = async () => {

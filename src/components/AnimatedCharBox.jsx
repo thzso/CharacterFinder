@@ -10,6 +10,8 @@ const AnimatedCharacterBox = ({
   setStoppedCharacters,
   windowWidth,
 }) => {
+
+
   const testRef = useRef(null);
   const [newHeightDimension, setNewHeightDimension] = useState(0);
   const [newWidthDimension, setNewWidthDimension] = useState(0);
@@ -24,8 +26,9 @@ const AnimatedCharacterBox = ({
     setNewWidthDimension(Math.floor(Math.random() * w));
   }
 
-  useEffect(() => {
+  const initRandomPositions =()=>{
     if (windowWidth >= 752) {
+      
       if (testRef.current.id % 2 === 0) {
         const interval = setInterval(() => {
           makeNewPosition();
@@ -33,7 +36,7 @@ const AnimatedCharacterBox = ({
 
         return () => clearInterval(interval);
       } else {
-        makeNewPosition();
+        // makeNewPosition();
 
         const interval = setInterval(() => {
           makeNewPosition();
@@ -42,7 +45,20 @@ const AnimatedCharacterBox = ({
         return () => clearInterval(interval);
       }
     }
-  }, [windowWidth]);
+
+  }
+
+
+  useEffect(() => {
+    makeNewPosition()
+    initRandomPositions()
+    
+  }, [windowWidth], []);
+
+  useEffect(()=>{
+
+    console.log("useefect üres dep array")
+  },[])
 
   return (
     <>
