@@ -63,7 +63,8 @@ const Episode = ({ episode, value }) => {
   useEffect(()=>{
       if (value !== null) {
     if (value.id == ref.current.id) {
-      ref.current?.scrollIntoView({ behavior: "smooth" });
+      console.log("bejött a refes useefectbe")
+      ref.current.scrollIntoView({ behavior: "smooth" });
     }
   }
   },[value])

@@ -15,7 +15,7 @@ body {
   margin: 0;
   background-color: #190833;
   min-height: 100vh;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 h1 {

@@ -66,7 +66,7 @@ const AnimatedCharacterBox = ({
             style={{ width: "150px", height: "150px", borderRadius: "100%" }}
             src={char.image}
             alt=""
-            srcset=""
+          
           />
         </div>
       ) : (

@@ -36,6 +36,8 @@ const EpisodesPage = () => {
     <div className={styles.pageContainer} style={{ color: "white" }}>
       <div style={{ width: "20rem", margin: "auto" }}>
         <Autocomplete
+        //? nyitva marad a keyboard mobilon ez után is? :
+        blurOnSelect={true}
           isOptionEqualToValue={(option, value) => option.id === value.id}
           value={value}
           componentsProps={{
