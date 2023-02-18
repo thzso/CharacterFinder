@@ -29,21 +29,21 @@ const AnimatedCharacterBox = ({
   const initRandomPositions =()=>{
     if (windowWidth >= 752) {
       
-      if (testRef.current.id % 2 === 0) {
+      // if (testRef.current.id % 2 === 0) {
         const interval = setInterval(() => {
           makeNewPosition();
         }, 3000);
 
         return () => clearInterval(interval);
-      } else {
-        // makeNewPosition();
+      // } else {
+      //   // makeNewPosition();
 
-        const interval = setInterval(() => {
-          makeNewPosition();
-        }, 8000);
+      //   const interval = setInterval(() => {
+      //     makeNewPosition();
+      //   }, 8000);
 
-        return () => clearInterval(interval);
-      }
+      //   return () => clearInterval(interval);
+      // }
     }
 
   }
@@ -72,7 +72,8 @@ const AnimatedCharacterBox = ({
           style={{
             position: "absolute",
             translate: `${newWidthDimension}px ${newHeightDimension}px`,
-            transition: char.id % 2 === 0 ? "translate 3s" : "translate 8s",
+            transition:  "translate 8s",
+            // char.id % 2 === 0 ? "translate 3s" :
             overflow: "visible",
             width: "150px",
             height: "150px",
