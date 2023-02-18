@@ -7,7 +7,6 @@ import getEpisodesCharacters from "../util/getEpisodeCharacters";
 import AnimatedCharacterBox from "./AnimatedCharBox";
 import { Icon, stepLabelClasses } from "@mui/material";
 
-
 const Episode = ({ episode, value }) => {
   const { characterContext } = useContext(DataContext);
   const { setCharacterContext } = useContext(DataContext);
@@ -21,7 +20,7 @@ const Episode = ({ episode, value }) => {
   const ref = useRef(null);
   const refEpisodeCard = useRef(null);
 
-  console.log(value)
+  console.log(value);
 
   // console.log(ref.current, value)
 
@@ -35,7 +34,8 @@ const Episode = ({ episode, value }) => {
     return () => {
       window.removeEventListener("resize", handleWindowResize);
     };
-  }),[];
+  }),
+    [];
 
   useEffect(() => {
     setAnimatedCharacters((prev) =>
@@ -54,21 +54,22 @@ const Episode = ({ episode, value }) => {
   }, [windowWidth]);
   const isFromEpisode = true;
 
-
-
   useLayoutEffect(() => {
     setEpisodeCardWidth(refEpisodeCard.current.offsetWidth);
   }, []);
 
-  useEffect(()=>{
-      if (value !== null) {
-    if (value.id == ref.current.id) {
-      console.log("bejött a refes useefectbe")
-      ref.current.scrollIntoView({ behavior: "smooth" });
+  const scroll = () => {
+    if (value !== null) {
+      if (value.id == ref.current.id) {
+        ref.current.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
     }
-  }
-  },[value])
 
+  };
+
+  useEffect(() => {
+    scroll()
+  }, [value]);
 
   const showCharacters = async () => {
     let idOfChars = episode.characters
