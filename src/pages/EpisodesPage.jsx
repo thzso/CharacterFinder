@@ -10,7 +10,9 @@ const EpisodesPage = () => {
   const [nextUrl, setNextUrl] = useState(
     "https://rickandmortyapi.com/api/episode"
   );
-  const [value, setValue] = useState();
+  const [value, setValue] = useState(null);
+
+  console.log("value: ", value, "options: ", episodes)
 
   useEffect(() => {
     const getEpisodes = async () => {
@@ -28,12 +30,14 @@ const EpisodesPage = () => {
     if (nextUrl) {
       getEpisodes();
     }
-  }, [nextUrl]);
+  }, [nextUrl], []);
 
   return (
     <div className={styles.pageContainer} style={{ color: "white" }}>
       <div style={{ width: "20rem", margin: "auto" }}>
         <Autocomplete
+          isOptionEqualToValue={(option, value) => option.id === value.id}
+          value={value}
           componentsProps={{
             paper: {
               sx: {
@@ -46,7 +50,7 @@ const EpisodesPage = () => {
           }}
           options={episodes}
           onChange={(event, newValue) => {
-            setValue(newValue.id);
+            setValue(newValue);
           }}
           renderInput={(params) => (
             <TextField

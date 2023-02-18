@@ -18,6 +18,13 @@ const Episode = ({ episode, value }) => {
   const [episodeCardWidth, setEpisodeCardWidth] = useState(0);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
+  const ref = useRef(null);
+  const refEpisodeCard = useRef(null);
+
+  console.log(value)
+
+  // console.log(ref.current, value)
+
   useEffect(() => {
     const handleWindowResize = () => {
       setWindowWidth(window.innerWidth);
@@ -28,7 +35,7 @@ const Episode = ({ episode, value }) => {
     return () => {
       window.removeEventListener("resize", handleWindowResize);
     };
-  });
+  }),[];
 
   useEffect(() => {
     setAnimatedCharacters((prev) =>
@@ -47,18 +54,20 @@ const Episode = ({ episode, value }) => {
   }, [windowWidth]);
   const isFromEpisode = true;
 
-  const ref = useRef(null);
-  const refEpisodeCard = useRef(null);
+
 
   useLayoutEffect(() => {
     setEpisodeCardWidth(refEpisodeCard.current.offsetWidth);
   }, []);
 
-  if (value !== undefined) {
-    if (value == ref.current.id) {
+  useEffect(()=>{
+      if (value !== null) {
+    if (value.id == ref.current.id) {
       ref.current?.scrollIntoView({ behavior: "smooth" });
     }
   }
+  },[value])
+
 
   const showCharacters = async () => {
     let idOfChars = episode.characters

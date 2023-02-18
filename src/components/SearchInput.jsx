@@ -8,7 +8,7 @@ const  SearchInput = ({ options, setOptions })=> {
   const [pages, setPages] = useState(null);
   const [value, setValue]= useState("")
 
-  console.log("value: ", value, "options: ", options)
+  
 
 
   useEffect(() => {
