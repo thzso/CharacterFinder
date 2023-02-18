@@ -32,13 +32,22 @@ h1 {
   border: 5px dashed green;
 }
 
-.MuiAutocomplete-hasPopupIcon.css-1qqsdnr-MuiAutocomplete-root
+/* .MuiAutocomplete-hasPopupIcon.css-1qqsdnr-MuiAutocomplete-root
   .MuiOutlinedInput-root,
 .MuiAutocomplete-hasClearIcon.css-1qqsdnr-MuiAutocomplete-root
-  .MuiOutlinedInput-root {
+  .MuiOutlinedInput-root */
+  
+  .MuiAutocomplete-inputRoot{
   color: #190833 !important;
   background-color: #ffffffeb !important;
 }
+.MuiAutocomplete-paper{
+  color: #190833 !important;
+}
+.MuiAutocomplete-root	{
+cursor:pointer;
+}
+
 
 .myCustomList::-webkit-scrollbar {
   width: 12px;
