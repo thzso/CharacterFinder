@@ -21,10 +21,6 @@ const Episode = ({ episode, value }) => {
   const ref = useRef(null);
   const refEpisodeCard = useRef(null);
 
-  // console.log(value);
-
-  // console.log(ref.current, value)
-
   useEffect(() => {
     const handleWindowResize = () => {
       setWindowWidth(window.innerWidth);

@@ -5,61 +5,49 @@ import CharacterAvatar from "./CharacterAvatar";
 const AnimatedCharacterBox = ({
   char,
   isFromEpisode,
-  episodeCardWidth,
-  stoppedCharacters,
   setStoppedCharacters,
   windowWidth,
+  episodeCardWidth,
 }) => {
-
-
+  console.log(episodeCardWidth);
   const testRef = useRef(null);
   const [newHeightDimension, setNewHeightDimension] = useState(0);
   const [newWidthDimension, setNewWidthDimension] = useState(0);
-  const [slower, setSlower] = useState(false);
 
-  function makeNewPosition() {
-    //   Get viewport dimensions (remove the dimension of the div)
+  let requestRef = useRef();
+  const firstFrameTime = useRef(performance.now());
 
-    var h = 800 - 150;
-    var w = windowWidth - 150;
+  let currentTime = 0;
+  const animationDuration = 4000;
+
+  // console.log("windowWiddth kívül",windowWidth)
+
+  const makeNewPosition = () => {
+    let h = 800 - 150;
+    let w = windowWidth - 150;
+    // console.log("w = ", w, "windowWidth =", windowWidth);
     setNewHeightDimension(Math.floor(Math.random() * h));
     setNewWidthDimension(Math.floor(Math.random() * w));
-  }
+  };
 
-  const initRandomPositions =()=>{
-    if (windowWidth >= 752) {
-      
-      // if (testRef.current.id % 2 === 0) {
-        const interval = setInterval(() => {
-          makeNewPosition();
-        }, 3000);
+  function render(now) {
+    if (!firstFrameTime.current || now - currentTime >= animationDuration) {
+      currentTime = now;
+      firstFrameTime.current = now;
 
-        return () => clearInterval(interval);
-      // } else {
-      //   // makeNewPosition();
-
-      //   const interval = setInterval(() => {
-      //     makeNewPosition();
-      //   }, 8000);
-
-      //   return () => clearInterval(interval);
-      // }
+      makeNewPosition();
     }
-
+    requestRef = requestAnimationFrame(render);
   }
 
-
-  useEffect(() => {
-    makeNewPosition()
-    initRandomPositions()
-    
-  }, [windowWidth], []);
-
-  useEffect(()=>{
-
-    if(newHeightDimension === 0 && newHeightDimension===0)
-    console.log("newHeightDimension === 0", newHeightDimension,newWidthDimension)
-  },[])
+  useEffect(
+    () => {
+      requestRef.current = requestAnimationFrame(render);
+      return () => cancelAnimationFrame(requestRef.current);
+    },
+    [],
+    [windowWidth]
+  );
 
   return (
     <>
@@ -72,8 +60,9 @@ const AnimatedCharacterBox = ({
           style={{
             position: "absolute",
             translate: `${newWidthDimension}px ${newHeightDimension}px`,
-            transition:  "translate 8s",
-            // char.id % 2 === 0 ? "translate 3s" :
+            transition: `${
+              char.id % 2 === 0 ? "translate 3s" : "translate 8s"
+            }`,
             overflow: "visible",
             width: "150px",
             height: "150px",
@@ -84,7 +73,6 @@ const AnimatedCharacterBox = ({
             style={{ width: "150px", height: "150px", borderRadius: "100%" }}
             src={char.image}
             alt=""
-          
           />
         </div>
       ) : (
